@@ -16,4 +16,15 @@ class PersonalDetailsApp < Sinatra::Base
 		erb :age, locals: {name: name}
 	end
 
+	post '/age' do
+		name = params[:name_input]
+		age = params[:age_input]
+		redirect '/fav_nums?age=' + age + '&name' + name
+	end
+
+	get '/fav_nums' do
+		name = params[:name]
+		age = params[:age]
+	end
+
 end

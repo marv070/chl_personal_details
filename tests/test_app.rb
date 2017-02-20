@@ -14,6 +14,8 @@ class TestApp < Minitest::Test
 		assert(last_response.ok?)
 		assert(last_response.body.include?('Hello, what is your name?'))
 		assert(last_response.body.include?('<input type="text" name="name_input">'))
+		assert(last_response.body.include?('<form method="post" action="/name">'))
+		assert(last_response.body.include?('<input type="submit" value="submit">'))
 	end
 
 	def test_post_to_name
@@ -26,6 +28,13 @@ class TestApp < Minitest::Test
 	def test_get_age
 		get '/age?name=Chloe'
 		assert(last_response.body.include?('Hello Chloe! How old are you?'))
+		assert(last_response.ok?)
+	end
+
+	def test_post_to_age
+		post '/age', age_input: '16', name: 'Chloe'
+		follow_redirect!
+		assert(last_response.body.include?('16','Chloe'))
 		assert(last_response.ok?)
 	end
 
