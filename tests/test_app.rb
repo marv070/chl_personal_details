@@ -32,9 +32,9 @@ class TestApp < Minitest::Test
 	end
 
 	def test_post_to_age
-		post '/age', age_input: '16', name: 'Chloe'
+		post '/age', age_input: '16', name_input: 'Chloe'
 		follow_redirect!
-		assert(last_response.body.include?('16','Chloe'))
+		assert(last_response.body.include?('16'))
 		assert(last_response.ok?)
 	end
 
