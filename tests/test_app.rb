@@ -38,4 +38,9 @@ class TestApp < Minitest::Test
 		assert(last_response.ok?)
 	end
 
+	def test_get_fav_nums
+		get '/fav_nums?age=16&name=Chloe'
+		assert(last_response.ok?)
+		assert(last_response.body.include?('Wow Chloe, only 16! What are your 3 favorite numbers?'))
+	end
 end

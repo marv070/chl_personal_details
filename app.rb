@@ -25,6 +25,8 @@ class PersonalDetailsApp < Sinatra::Base
 	get '/fav_nums' do
 		name = params[:name]
 		age = params[:age]
+		erb :favnums, locals: {name: name, age: age}
+
 	end
 
 end
