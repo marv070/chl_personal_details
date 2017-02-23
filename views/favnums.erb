@@ -1,10 +1,10 @@
-Cool <%=name%>, you are <%=age%> years old. What are your 3 favorite numbers?
+<h4 class="center"> Cool <%=name%>, you are <%=age%> years old. What are your 3 favorite numbers?
 
 <form action="/fav_nums" method="post">
-<input type="number" name="fav_num1_input">
+<input type="number" name="fav_num1_input" autofocus="autofocus">
 <input type="number" name="fav_num2_input">
 <input type="number" name="fav_num3_input">
 <input type='number' name='age_input' value= <%=age%> hidden>
 <input type='text' name='name_input' value= <%=name%> hidden>
-<p><input type="submit"></p>
-</form>
+<p><input type="submit" value='click just once more'></p>
+</form></h4>
