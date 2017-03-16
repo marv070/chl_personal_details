@@ -1,4 +1,4 @@
 require './app.rb'
-run PersonalDetailsApp
+PersonalDetailsApp.run!
 
 #rackup
